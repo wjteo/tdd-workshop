@@ -1,11 +1,12 @@
 const express = require('express')
-const fizzbuzz = require('./fizzbuzz')
+const { fizzbuzz } = require('./fizzbuzz')
 const checkInput = require('./middleware')
 
-const app = express()
-app.get('/fizzbuzz', checkInput, (req, res) => {
-    const { query } = req
-    res.status(200).send(fizzbuzz(parseInt(query.n)))
+const app = express();
+
+app.get('/fizzbuzz/:number', checkInput, (req, res) => {
+    const response = fizzbuzz(parseInt(req.params.number))
+    res.json({ result: response })
 })
 
-module.exports = app
+module.exports = app;

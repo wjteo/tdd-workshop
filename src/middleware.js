@@ -1,4 +1,7 @@
 module.exports = (req, res, next) => {
-  if(isNaN(req.query.n)) throw Error('Invalid input')
-  next()
+    console.log('hello', req.params.number)
+    if (isNaN(req.params.number)) {
+        res.status(400).send()
+    }
+    next()
 }
