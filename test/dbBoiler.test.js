@@ -1,3 +1,4 @@
+//boiler plate to initialise db in test
 const { model } = require('mongoose');
 const { initJestMongoose, closeJestMongoose } = require('./global/jestMongoose')
 
